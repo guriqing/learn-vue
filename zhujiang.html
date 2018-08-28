@@ -14,7 +14,7 @@
         <button-counter></button-counter>
     </div>
     
-    <!-- <blog-post title="My journey with Vue"></blog-post>
+    <blog-post title="My journey with Vue"></blog-post>
     <blog-post title="Blogging with Vue"></blog-post>
     <blog-post title="Why Vue is so fun"></blog-post>
     <blog-post
@@ -26,7 +26,7 @@
     <div class="blog-post">
         <h3>{{ title }}</h3>
         <div v-html="content"></div>
-    </div> -->
+    </div>
 
     <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title" v-bind:content="post.content" v-bind:publishedAt="post.publishedAt" v-bind:comments="post.comments"></blog-post>
 
@@ -59,26 +59,26 @@
 
         new Vue({ el: '#components-demo'})
 
-        //全局注册
-        /*Vue.component('my-component-name', {
+        全局注册
+        Vue.component('my-component-name', {
             //... options ...
-        })*/
+        })
 
-        // Vue.component('blog-post', {
-        //     props: ['title'],
-        //     template: '<h3>{{ title }}</h3>'
-        // })
+        Vue.component('blog-post', {
+            props: ['title'],
+            template: '<h3>{{ title }}</h3>'
+        })
 
-        // new Vue({
-        //     el: '#blog-post-demo',
-        //     data: {
-        //         posts: [
-        //         { id: 1, title: 'My journey with Vue' },
-        //         { id: 2, title: 'Blogging with Vue' },
-        //         { id: 3, title: 'Why Vue is so fun' }
-        //         ]
-        //     }
-        // })
+        new Vue({
+            el: '#blog-post-demo',
+            data: {
+                posts: [
+                { id: 1, title: 'My journey with Vue' },
+                { id: 2, title: 'Blogging with Vue' },
+                { id: 3, title: 'Why Vue is so fun' }
+                ]
+            }
+        })
 
         Vue.component('blog-post', {
             props: ['post'],
