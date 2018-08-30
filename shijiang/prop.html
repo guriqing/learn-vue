@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>prop</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="test">
+        <!-- 在 HTML 中是 kebab-case 的 -->
+        <blog-post post-title="hello!"></blog-post>
+        <!-- <blog-post title="My journey with Vue"></blog-post> -->
+        <!-- 动态赋予一个变量的值 -->
+        <!-- <blog-post v-bind:title="post.title"></blog-post> -->
+
+        <!-- 动态赋予一个复杂表达式的值 -->
+        <!-- <blog-post v-bind:title="post.title + ' by ' + post.author.name"></blog-post> -->
+        
+        <!-- 即便 `42` 是静态的，我们仍然需要 `v-bind` 来告诉 Vue -->
+        <!-- 这是一个 JavaScript 表达式而不是一个字符串。-->
+        <!-- <blog-post v-bind:likes="42"></blog-post> -->
+
+        <!-- 用一个变量进行动态赋值。-->
+        <!-- <blog-post v-bind:likes="post.likes"></blog-post> -->
+
+        <!-- <blog-post v-bind="post"></blog-post> -->
+
+        <!-- <blog-post
+            v-bind:id="post.id"
+            v-bind:title="post.title"
+        ></blog-post> -->
+
+        <!-- <bootstrap-date-input data-date-picker="activated"></bootstrap-date-input> -->
+
+        <!-- <input type="date" class="form-control">
+        <bootstrap-date-input
+        data-date-picker="activated"
+        class="date-picker-theme-dark"
+        ></bootstrap-date-input>
+
+        <base-input
+            v-model="username"
+            class="username-input"
+            placeholder="Enter your username"
+        ></base-input> -->
+
+    </div>
+    <script type="text/javascript">
+        
+        Vue.component('blog-post', {
+            //在 JavaScript 中是 camelCase 的
+            props: ['postTitle'],
+            template: '<h3>{{ postTitle }}</h3>'
+        })
+
+        new Vue({
+            el: '#test'
+        })
+
+        // post: {
+        //     id: 1,
+        //     title: 'My Journey with Vue'
+        // }
+
+        // props: ['initialCounter'],
+        // data: function () {
+        //     return {
+        //         counter: this.initialCounter
+        //     }
+        // }
+
+        // props: ['size'],
+        // computed: {
+        //     normalizedSize: function () {
+        //         return this.size.trim().toLowerCase()
+        //     }
+        // }
+
+        // Vue.component('my-component', {
+        //     props: {
+        //         // 基础的类型检查 (`null` 匹配任何类型)
+        //         propA: Number,
+        //         // 多个可能的类型
+        //         propB: [String, Number],
+        //         // 必填的字符串
+        //         propC: {
+        //             type: String,
+        //             required: true
+        //         },
+        //         // 带有默认值的数字
+        //         propD: {
+        //             type: Number,
+        //             default: 100
+        //         },
+        //         // 带有默认值的对象
+        //         propE: {
+        //             type: Object,
+        //             // 对象或数组默认值必须从一个工厂函数获取
+        //             default: function () {
+        //                 return { message: 'hello' }
+        //             }
+        //         },
+        //         // 自定义验证函数
+        //         propF: {
+        //             validator: function (value) {
+        //                 // 这个值必须匹配下列字符串中的一个
+        //                 return ['success', 'warning', 'danger'].indexOf(value) !== -1
+        //             }
+        //         }
+        //     }
+        // })
+
+        // function Person (firstName, lastName) {
+        //     this.firstName = firstName
+        //     this.lastName = lastName
+        // }
+
+        // Vue.component('blog-post', {
+        //     props: {
+        //         author: Person
+        //     }
+        // })
+
+        // Vue.component('base-input', {
+        //     inheritAttrs: false,
+        //     props: ['label', 'value'],
+        //     template: `
+        //         <label>
+        //         {{ label }}
+        //         <input
+        //             v-bind="$attrs"
+        //             v-bind:value="value"
+        //             v-on:input="$emit('input', $event.target.value)"
+        //         >
+        //         </label>
+        //     `
+        // })
+    </script>
+</body>
+</html>
