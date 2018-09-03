@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>prop类型</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 在 HTML 中是 Kebab-case 的 -->
+    <div id="test">
+        <blog-post post-title="hello!"></blog-post>
+    </div>
+
+    <div id="post">
+        <blog-post v-bind="post"></blog-post>
+    </div>
+
+    <script>
+        Vue.component('blog-post', {
+            //在 JavaScript 中是 camelCase 的
+            props: ['postTitle'],
+            template: '<h3>{{ postTitle }}</h3>'
+        })
+
+        new Vue({
+            el: '#test'
+        })
+
+        Vue.component('blog-post', {
+            post: {
+                id: 1,
+                title: 'My Journey with Vue'
+            }
+        })
+    </script>
+</body>
+</html>
